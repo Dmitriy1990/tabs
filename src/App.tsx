@@ -1,6 +1,8 @@
 import React from "react";
 import BasicTabs from "./Tabs";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import SwipeableViews from "react-swipeable-views";
+import FloatingActionButtonZoom from "./TabsSlide";
 
 const vars = {
   orange: "#C0FA1A",
@@ -39,6 +41,7 @@ function App() {
   return (
     <ThemeProvider theme={myTheme}>
       <BasicTabs />
+      <FloatingActionButtonZoom />
     </ThemeProvider>
   );
 }
