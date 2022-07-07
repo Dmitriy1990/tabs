@@ -3,33 +3,12 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { makeStyles } from "@mui/styles";
 
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
   value: number;
 }
-
-const useStyles = makeStyles({
-  root: {
-    fontWeight: 600,
-  },
-  indicator: {
-    background: "#C0FA1A !important",
-  },
-
-  tabRoot: {
-    fontSize: 14,
-    color: "#241F1F !important",
-    paddingBottom: 19,
-    fontWeight: "600 !importan",
-    marginRight: "30px !important",
-  },
-  selectedTab: {
-    color: "#C0FA1A !important",
-  },
-});
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
@@ -64,30 +43,21 @@ export default function BasicTabs() {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-  const classes = useStyles();
+
   return (
     <Box sx={{ width: "100%" }}>
       <Tabs
         value={value}
         onChange={handleChange}
         aria-label="basic tabs example"
-        classes={{ indicator: classes.indicator }}
       >
         <Tab
-          classes={{ root: classes.tabRoot, selected: classes.selectedTab }}
-          className={classes.root}
           label="Первый"
           {...a11yProps(0)}
           disableTouchRipple
-          style={{ fontWeight: 600 }}
+          style={{ marginRight: 60 }}
         />
-        <Tab
-          classes={{ root: classes.tabRoot, selected: classes.selectedTab }}
-          label="Второй"
-          {...a11yProps(1)}
-          disableTouchRipple
-          style={{ fontWeight: 600 }}
-        />
+        <Tab label="Второй" {...a11yProps(1)} disableTouchRipple />
       </Tabs>
 
       <TabPanel value={value} index={0}>
